@@ -23,8 +23,13 @@
         </div>
 
         <div>
+            <label for="age">Âge :</label>
+            <input type="number" id="age" placeholder="Ex : 18" min="0" max ="120"> <!-- L'âge minimum est 0, pour empêcher l'utilisateur de mettre une valeur négative. Les flèches restent pour inciter l'utilisateur à mettre des nombres...-->
+        </div>
+
+        <div>
             <label for="email">Adresse email :</label>
-            <input type="email" id="email" placeholder="Ex : exemple@gmail.com" onblur="validateEmail()">
+            <input type="email" id="email" placeholder="Ex : exemple@gmail.com" onblur="validateEmail()"> <!-- L'adresse mail aussi est obligatoire car nécessaire pour authentifier l'utilisateur. -->
             <span id="email-msg" hidden>Adresse email non valide : ne peut être vide, et doit contenir "@".</span> <!-- La seule chose techniquement obligatoire dans une adresse mail est le @, c'est donc sa présence qu'on vérifie. On peut aussi envoyer un mail de confirmation avec un lien cliquable! -->
             
         </div>
