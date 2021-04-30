@@ -12,14 +12,21 @@
     <form>
     
         <div>        
-            <label for="name">Prénom</label> <!-- Je mets le prénom avant le nom pour éviter le réflexe d'écrire son nom ET son prénom dans le champ nom. Personnellement je fais parfois cette erreur... -->
-            <input type="text" id="name" placeholder="Jean">
+            <label for="name">Prénom :</label> <!-- Je mets le prénom avant le nom pour éviter le réflexe d'écrire son nom ET son prénom dans le champ nom. Personnellement je fais parfois cette erreur... -->
+            <input type="text" id="name" placeholder="Ex : Jean">
         </div>
 
         <div>
-            <label for="surname">Nom</label>
-            <input type="text" id="surname" placeholder="Dupont" onblur="validateName()"> <!-- Au moins un nom est obligatoire, pour lutter contre les abus en ligne et limiter l'anonymat, le champ ne peut être vide. -->
+            <label for="surname">Nom :</label>
+            <input type="text" id="surname" placeholder="Ex : Dupont" onblur="validateName()"> <!-- Au moins un nom est obligatoire, pour lutter contre les abus en ligne et limiter l'anonymat, le champ ne peut être vide. -->
             <span id="surname-msg" hidden>Vous devez entrer un nom.</span>
+        </div>
+
+        <div>
+            <label for="email">Adresse email :</label>
+            <input type="email" id="email" placeholder="Ex : exemple@gmail.com" onblur="validateEmail()">
+            <span id="email-msg" hidden>Adresse email non valide : ne peut être vide, et doit contenir "@".</span> <!-- La seule chose techniquement obligatoire dans une adresse mail est le @, c'est donc sa présence qu'on vérifie. On peut aussi envoyer un mail de confirmation avec un lien cliquable! -->
+            
         </div>
 
     </form>
