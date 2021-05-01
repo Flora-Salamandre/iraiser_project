@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire</title>
     <script src="https://code.jquery.com/git/jquery-3.x-git.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -32,6 +33,14 @@
             <input type="email" id="email" placeholder="Ex : exemple@gmail.com" onblur="validateEmail()"> <!-- L'adresse mail aussi est obligatoire car nécessaire pour authentifier l'utilisateur. -->
             <span id="email-msg" hidden>Adresse email non valide : ne peut être vide, et doit contenir "@".</span> <!-- La seule chose techniquement obligatoire dans une adresse mail est le @, c'est donc sa présence qu'on vérifie. On peut aussi envoyer un mail de confirmation avec un lien cliquable! -->
             
+        </div>
+
+        <div>
+            <label for="telephone">Numéro de téléphone :</label>
+            <input type="tel" id="telephone" placeholder="Ex : +336 00 00 00 00"> <!-- Comme le formulaire peut être international, proposer de mettre l'indicatif pays pour que le numéro soit valide depuis tous les pays. -->
+            <legend>Pourquoi donner mon numéro ?</legend> <!-- Les utilisateurs peuvent être suspicieux à la demande de leur numéro personnel. Une infobulle peut être utile pour se justifier. -->
+            <i class="fa fa-info-circle" title="Explications génériques pour justifier l'emploi du numéro."></i> <!-- Pour une raison d'intuitivité, j'ai mis une icône <i> à survoler (importée dans le head) pour avoir l'infobulle. -->
+
         </div>
 
     </form>
