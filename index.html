@@ -40,6 +40,35 @@
             <input type="tel" id="telephone" placeholder="Ex : +336 00 00 00 00"> <!-- Comme le formulaire peut être international, proposer de mettre l'indicatif pays pour que le numéro soit valide depuis tous les pays. -->
             <legend>Pourquoi donner mon numéro ?</legend> <!-- Les utilisateurs peuvent être suspicieux à la demande de leur numéro personnel. Une infobulle peut être utile pour se justifier. -->
             <i class="fa fa-info-circle" title="Explications génériques pour justifier l'emploi du numéro."></i> <!-- Pour une raison d'intuitivité, j'ai mis une icône <i> à survoler (importée dans le head) pour avoir l'infobulle. -->
+            <!-- On peut aussi envisager un code de confirmation par SMS pour authentifier le n°. -->
+        </div>
+
+        <div>
+            <p>Type de carte :</p>
+
+            <input type="radio" id="individuelle" name="type_carte" onchange="displayCoupleFields(false)">
+            <label for="individuelle">Individuelle</label><br>
+
+            <input type="radio" id="couple" name="type_carte" onchange="displayCoupleFields(true)">
+            <label for="couple">Couple</label><br>
+
+            <input type="radio" id="premium" name="type_carte" onchange="displayCoupleFields(false)">
+            <label for="premium">Premium</label>
+
+            <div id="if-couple" hidden>
+                <span>Veuillez renseigner le nom du conjoint :</span> <!-- copie des divs Prénom et Nom précédents. -->
+
+                <div>        
+                    <label for="name">Prénom :</label> 
+                    <input type="text" id="name" placeholder="Ex : Jean">
+                </div>
+
+                <div>
+                    <label for="surname">Nom :</label>
+                    <input type="text" id="surname-couple" placeholder="Ex : Dupont" onblur="validateCoupleName()">
+                    <span id="surname-couple-msg" hidden>Vous devez entrer un nom.</span>
+                </div>
+            </div>    
 
         </div>
 
