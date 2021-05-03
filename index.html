@@ -25,7 +25,8 @@
 
         <div>
             <label for="age">Âge :</label>
-            <input type="number" id="age" placeholder="Ex : 18" min="0" max ="120"> <!-- L'âge minimum est 0, pour empêcher l'utilisateur de mettre une valeur négative. Les flèches restent pour inciter l'utilisateur à mettre des nombres...-->
+            <input type="number" id="age" placeholder="Ex : 18" onblur="validateAge()"> <!-- L'âge minimum est 0, pour empêcher l'utilisateur de mettre une valeur négative. Les flèches restent pour inciter l'utilisateur à mettre des nombres...-->
+            <span id="age-msg" hidden>Âge non valide : ne peut être vide, et doit être compris entre 0 et 120.</span> <!-- Âge obligatoire car nécessaire pour la redirection. -->
         </div>
 
         <div>
@@ -55,12 +56,12 @@
             <input type="radio" id="premium" name="type_carte" onchange="displayCoupleFields(false)">
             <label for="premium">Premium</label>
 
-            <div id="if-couple" hidden>
-                <span>Veuillez renseigner le nom du conjoint :</span> <!-- copie des divs Prénom et Nom précédents. -->
+            <div id="if-couple" hidden> <!-- N'apparaît que quand l'option "couple" est cochée. -->
+                <span>Veuillez renseigner le nom du conjoint :</span>
 
                 <div>        
                     <label for="name">Prénom :</label> 
-                    <input type="text" id="name" placeholder="Ex : Jean">
+                    <input type="text" id="name-couple" placeholder="Ex : Jean">
                 </div>
 
                 <div>
@@ -73,7 +74,10 @@
         </div>
 
     </form>
+    
+    <button onclick="redirect()">Confirmer mes données</button> <!-- J'écris sur le bouton l'action déclenchée par celui-ci, pas juste "Envoyer" qui est trop général, et perd l'utilisateur. -->
 
     <script src="index.js"></script>
+
 </body>
 </html>
