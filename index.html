@@ -7,77 +7,102 @@
     <title>Formulaire</title>
     <script src="https://code.jquery.com/git/jquery-3.x-git.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet"> 
 </head>
+
 <body>
 
-    <form>
-    
-        <div>        
-            <label for="name">Prénom :</label> <!-- Je mets le prénom avant le nom pour éviter le réflexe d'écrire son nom ET son prénom dans le champ nom. Personnellement je fais parfois cette erreur... -->
-            <input type="text" id="name" placeholder="Ex : Jean">
-        </div>
+    <div class="texte">
+        <h1>Titre qui invite à faire un don</h1>
 
-        <div>
-            <label for="surname">Nom :</label>
-            <input type="text" id="surname" placeholder="Ex : Dupont" onblur="validateName()"> <!-- Au moins un nom est obligatoire, pour lutter contre les abus en ligne et limiter l'anonymat, le champ ne peut être vide. -->
-            <span id="surname-msg" hidden>Vous devez entrer un nom.</span>
-        </div>
+        <p>Paragraphe avec quelques chiffres et quelques rappels sur la cause qui donnent envie de faire des dons.</p>
+    </div>
 
-        <div>
-            <label for="age">Âge :</label>
-            <input type="number" id="age" placeholder="Ex : 18" onblur="validateAge()"> <!-- L'âge minimum est 0, pour empêcher l'utilisateur de mettre une valeur négative. Les flèches restent pour inciter l'utilisateur à mettre des nombres...-->
-            <span id="age-msg" hidden>Âge non valide : ne peut être vide, et doit être compris entre 0 et 120.</span> <!-- Âge obligatoire car nécessaire pour la redirection. -->
-        </div>
+    <div class="form-container">
 
-        <div>
-            <label for="email">Adresse email :</label>
-            <input type="email" id="email" placeholder="Ex : exemple@gmail.com" onblur="validateEmail()"> <!-- L'adresse mail aussi est obligatoire car nécessaire pour authentifier l'utilisateur. -->
-            <span id="email-msg" hidden>Adresse email non valide : ne peut être vide, et doit contenir "@".</span> <!-- La seule chose techniquement obligatoire dans une adresse mail est le @, c'est donc sa présence qu'on vérifie. On peut aussi envoyer un mail de confirmation avec un lien cliquable! -->
+        <div class="panneau-form">
+            <form>
             
-        </div>
-
-        <div>
-            <label for="telephone">Numéro de téléphone :</label>
-            <input type="tel" id="telephone" placeholder="Ex : +336 00 00 00 00"> <!-- Comme le formulaire peut être international, proposer de mettre l'indicatif pays pour que le numéro soit valide depuis tous les pays. -->
-            <legend>Pourquoi donner mon numéro ?</legend> <!-- Les utilisateurs peuvent être suspicieux à la demande de leur numéro personnel. Une infobulle peut être utile pour se justifier. -->
-            <i class="fa fa-info-circle" title="Explications génériques pour justifier l'emploi du numéro."></i> <!-- Pour une raison d'intuitivité, j'ai mis une icône <i> à survoler (importée dans le head) pour avoir l'infobulle. -->
-            <!-- On peut aussi envisager un code de confirmation par SMS pour authentifier le n°. -->
-        </div>
-
-        <div>
-            <p>Type de carte :</p>
-
-            <input type="radio" id="individuelle" name="type_carte" onchange="displayCoupleFields(false)">
-            <label for="individuelle">Individuelle</label><br>
-
-            <input type="radio" id="couple" name="type_carte" onchange="displayCoupleFields(true)">
-            <label for="couple">Couple</label><br>
-
-            <input type="radio" id="premium" name="type_carte" onchange="displayCoupleFields(false)">
-            <label for="premium">Premium</label>
-
-            <div id="if-couple" hidden> <!-- N'apparaît que quand l'option "couple" est cochée. -->
-                <span>Veuillez renseigner le nom du conjoint :</span>
-
-                <div>        
-                    <label for="name">Prénom :</label> 
-                    <input type="text" id="name-couple" placeholder="Ex : Jean">
+                <div class="item">        
+                    <label for="name">Prénom :</label> <!-- Je mets le prénom avant le nom pour éviter le réflexe d'écrire son nom ET son prénom dans le champ nom. Personnellement je fais parfois cette erreur... -->
+                    <input type="text" id="name" placeholder="Ex : Jean">
                 </div>
 
-                <div>
+                <div class="item">
                     <label for="surname">Nom :</label>
-                    <input type="text" id="surname-couple" placeholder="Ex : Dupont" onblur="validateCoupleName()">
-                    <span id="surname-couple-msg" hidden>Vous devez entrer un nom.</span>
+                    <input type="text" id="surname" placeholder="Ex : Dupont" onblur="validateName()"> <!-- Au moins un nom est obligatoire, pour lutter contre les abus en ligne et limiter l'anonymat, le champ ne peut être vide. -->
+                    <span id="surname-msg" hidden>Vous devez entrer un nom.</span>
                 </div>
-            </div>    
 
+                <div class="item">
+                    <label for="age">Âge :</label>
+                    <input type="number" id="age" placeholder="Ex : 18" onblur="validateAge()"> <!-- L'âge minimum est 0, pour empêcher l'utilisateur de mettre une valeur négative. Les flèches restent pour inciter l'utilisateur à mettre des nombres...-->
+                    <span id="age-msg" hidden>Âge non valide : ne peut être vide, et doit être compris entre 0 et 120.</span> <!-- Âge obligatoire car nécessaire pour la redirection. -->
+                </div>
+
+                <div class="item">
+                    <label for="email">Adresse email :</label>
+                    <input type="email" id="email" placeholder="Ex : exemple@gmail.com" onblur="validateEmail()"> <!-- L'adresse mail aussi est obligatoire car nécessaire pour authentifier l'utilisateur. -->
+                    <span id="email-msg" hidden>Adresse email non valide : ne peut être vide, et doit contenir "@".</span> <!-- La seule chose techniquement obligatoire dans une adresse mail est le @, c'est donc sa présence qu'on vérifie. On peut aussi envoyer un mail de confirmation avec un lien cliquable! -->
+                    
+                </div>
+
+                <div class="item">
+                    <label for="telephone">Téléphone :</label>
+                    <input type="tel" id="telephone" placeholder="Ex : +336 00 00 00 00"> <!-- Comme le formulaire peut être international, proposer de mettre l'indicatif pays pour que le numéro soit valide depuis tous les pays. -->
+                    
+                    <div class="legende_infobulle">
+                        <legend>Pourquoi donner mon numéro ?</legend> <!-- Les utilisateurs peuvent être suspicieux à la demande de leur numéro personnel. Une infobulle peut être utile pour se justifier. -->
+                        <i class="fa fa-info-circle" title="Explications génériques pour justifier l'emploi du numéro."></i> <!-- Pour une raison d'intuitivité, j'ai mis une icône <i> à survoler (importée dans le head) pour avoir l'infobulle. -->
+                    </div>
+                    
+                    <!-- On peut aussi envisager un code de confirmation par SMS pour authentifier le n°. -->
+                </div>
+
+                <div class="item">
+                    <p>Type de carte :</p>
+
+                    <div class="three-types">
+                        <div class="radio">
+                            <input type="radio" id="individuelle" name="type_carte" onchange="displayCoupleFields(false)">
+                            <label for="individuelle">Individuelle</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" id="couple" name="type_carte" onchange="displayCoupleFields(true)">
+                            <label for="couple">Couple</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" id="premium" name="type_carte" onchange="displayCoupleFields(false)">
+                            <label for="premium">Premium</label>
+                        </div>
+                    </div>    
+
+                    <div id="if-couple" hidden> <!-- N'apparaît que quand l'option "couple" est cochée. -->
+                        <p>Veuillez renseigner le nom du conjoint :</p>
+
+                        <div class="item">        
+                            <label for="name">Prénom :</label> 
+                            <input type="text" id="name-couple" placeholder="Ex : Jean">
+                        </div>
+
+                        <div class="item">
+                            <label for="surname">Nom :</label>
+                            <input type="text" id="surname-couple" placeholder="Ex : Dupont" onblur="validateCoupleName()">
+                            <span id="surname-couple-msg" hidden>Vous devez entrer un nom.</span>
+                        </div>
+                    </div>    
+
+                </div>
+
+            </form>
+            
+            <button onclick="redirect()">Confirmer mes données</button> <!-- J'écris sur le bouton l'action déclenchée par celui-ci, pas juste "Envoyer" qui est trop général, et perd l'utilisateur. -->
         </div>
-
-    </form>
     
-    <button onclick="redirect()">Confirmer mes données</button> <!-- J'écris sur le bouton l'action déclenchée par celui-ci, pas juste "Envoyer" qui est trop général, et perd l'utilisateur. -->
+    </div>
 
     <script src="index.js"></script>
-
 </body>
 </html>
